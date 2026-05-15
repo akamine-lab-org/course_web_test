@@ -1,4 +1,8 @@
-baseURL = 'http://localhost:1313/'
-languageCode = 'en-us'
+baseURL = 'https://akamine-lab-org.github.io/course_web_test/'
+languageCode = 'ja-jp'
 #theme = "ananke"
-title = 'My New Hugo Site'
+title = '学科紹介サイト'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
