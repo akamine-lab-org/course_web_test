@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animated");
+                    observer.unobserve(entry.target); // 一度きりでOKなら
+                }
+            });
+        }, {
+            threshold: 0.1  // 要素の10%が見えたら反応
+        });
+
+        document.querySelectorAll("h2").forEach(h2 => {
+            observer.observe(h2);
+        });
+        document.querySelectorAll("h1").forEach(h1 => {
+            observer.observe(h1);
+        });
+
+    });
+</script>
+
+
+<article class="page">
+    <header class="article-header">
+        <h1 class="article-title">{{ .Title }}</h1>
+    </header>
+    <div class="page-body">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

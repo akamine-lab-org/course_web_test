@@ -1,0 +1,64 @@
+{{ define "main" }}
+<header class="hero-header">
+    <!-- <div class="hero">
+        <img src="/images/main.png" alt="ヘッダー画像">
+    </div> -->
+    <div id="fixed-header">
+        <span id="eng-logo">琉球大学工学部</span>
+        <span id="ie-logo"> </span>
+        <div id="logo">
+            <img class="logo-part" src="images/chino2.png" alt="知能">
+            <img class="logo-part" src="images/joho.png" alt="情報">
+            <img class="logo-part" src="images/course.png" alt="コース">
+        </div>
+    </div>
+</header>
+
+
+<nav class="main-nav">
+    <ul>
+        {{ range $i, $p := sort .Site.RegularPages "Weight" }}
+        <!-- {{ if and (ne .Kind "home") (or (eq .Kind "section") (eq .Section "")) }} -->
+        <!-- <li><a href="{{ .RelPermalink }}"> -->
+        <li><a href="#post-{{ add $i 1 }}">
+                <span class="nav-icon">▽</span>
+                <span class="nav-label">{{ .Title }}</span>
+            </a></li>
+        <!-- {{ end }} -->
+        {{ end }}
+        <!-- <li>
+            <a href="pages/curriculum_overview2025.htm">
+                <span class="nav-icon">▽</span>
+                <span class="nav-label">カリキュラム</span>
+            </a>
+        </li> -->
+    </ul>
+</nav>
+
+<div class="article-base">
+
+    <h1 class="title">
+        {{ .Title }}
+    </h1>
+
+    <div class="article-body">
+        {{ .Content }} <!-- home/_index.md の本文 -->
+    </div>
+    <div class="divider"></div>
+
+    <div>
+        {{ range $i, $p := sort .Site.RegularPages "Weight" }}
+        <section class="article-section" id="post-{{ add $i 1 }}">
+            <h1 class="title">{{.Title}}</h1>
+            <div class="article-body"> {{.Content}}</div>
+        </section>
+        <div class="divider"></div>
+        {{end}}
+
+    </div>
+
+</div>
+
+<script src="scripts/home.js"></script>
+
+{{ end }}

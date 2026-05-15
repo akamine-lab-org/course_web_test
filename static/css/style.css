@@ -1,0 +1,518 @@
+/* ベーススタイル */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    width: 100vw;
+    /* max-width: 800px; */
+
+    background: #f9f9f9;
+    color: #222;
+    line-height: 1.8;
+}
+
+a {
+    color: #0044cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ヘッダー */
+header {
+    background-color: #111;
+    color: white;
+    /* padding: 1rem 2rem; */
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav li a {
+    color: white;
+    font-weight: bold;
+}
+
+/* メインコンテンツ */
+main {
+    padding: 0rem;
+    margin: 0 auto;
+    background: white;
+}
+
+/* フッター */
+footer {
+    background: #eee;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* 投稿リスト */
+.post-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    background: #fff;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-left: 5px solid #0044cc;
+    box-shadow: 0 2p
+}
+
+.main-nav {
+    position: sticky;
+    top: 40px;
+    font-size: 1em;
+    background-color: white;
+    z-index: 1;
+}
+
+
+/* ベースのナビゲーション */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+}
+
+.main-nav a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* アンダーラインのベース */
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e64724;
+    /* 下線の色（赤） */
+
+    transition: width 0.3s ease;
+}
+
+/* ホバー時にアンダーラインが伸びる */
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.main-nav .nav-icon {
+    color: #e64724;
+    font-size: 1.0rem;
+    margin-right: 0.0em;
+    line-height: 1;
+    display: inline-block;
+    transform: rotate(0deg);
+    /* 必要に応じて調整 */
+}
+
+/* マウスオーバー時に下に移動 */
+.main-nav a:hover .nav-icon {
+    transition: transform 0.6s ease;
+    /* ← 0.6秒に変更（ゆっくり） */
+
+    transform: translateY(4px);
+    /* 4px 下にスライド */
+}
+
+.hero {
+    margin: 0;
+    padding: 0;
+}
+
+
+.hero-header {
+    background-image: url("../images/header.jpg");
+    background-size: 100vw;
+    background-position: left;
+    /* height: 800px; */
+    width: 100vw;
+    aspect-ratio: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text {
+    text-align: left;
+    color: #a44;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* 背景を半透明に */
+    padding: 1rem 2rem;
+    border-radius: 8px;
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translateY(-20%);
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.hero-text h2 {
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.article-base {
+    padding: 20px;
+}
+
+.title::first-letter {
+    color: #e64724;
+}
+
+
+h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background-color: #e64724;
+    transition: width 0.6s ease-in-out;
+    transition-delay: 0.3s;
+    /* ← ここで遅延指定 */
+}
+
+h2.animated::after {
+    width: 100%;
+}
+
+.article-title {
+    position: relative;
+    font-size: 2.2rem;
+    color: #444;
+    line-height: 2.4;
+    opacity: 0;
+    transform: translateY(0px);
+    transition: all 0.1s ease-out;
+}
+
+.article-title.animated {
+    position: relative;
+    font-size: 2.2rem;
+    color: #fff;
+    line-height: 2.4;
+    opacity: 1;
+    transform: translateY(20px);
+    transition: all 1.0s ease-out;
+}
+
+h2 {
+    position: relative;
+    font-size: 1.5rem;
+    color: #343030;
+    line-height: 1.5;
+    opacity: 0.1;
+    transform: translateX(-20px);
+    transition: all 0.1s ease-out;
+}
+
+h2.animated {
+    transform: translateX(0px);
+    opacity: 1;
+    transition: all 0.5s ease-out;
+
+}
+
+
+.article-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #333;
+    /* scroll-margin-top: 80px; */
+}
+
+
+
+#logo {
+    position: fixed;
+    /* ← 上部固定でも中央でもOK */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.logo-part {
+    position: absolute;
+    width: 40vw;
+    height: auto;
+    max-width: none;
+    /* 例：高さだけ指定（必要に応じて） */
+    transform-origin: top left;
+    transition: transform 0.4s none;
+    z-index: 99;
+    /* filter: blur(8px) drop-shadow(0 0 20px cyan); */
+}
+
+#fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 40px;
+    font-size: 1.5em;
+    z-index: 1;
+    background-color: rgba(0, 0, 30, var(--bg-opacity, 0));
+    padding-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+
+
+
+#eng-logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#ie-logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+/* 区切り線のデザイン */
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, #e39a1c, #1e90ff);
+    margin: 2rem 0;
+    border-radius: 2px;
+    opacity: 0.6;
+    animation: glow 3s infinite ease-in-out;
+}
+
+/* 区切り線のアニメーション */
+@keyframes glow {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+
+
+
+
+
+
+
+.scroll-x {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    animation: fadeIn 1s ease-in;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+    transition: transform 0.3s ease;
+}
+
+td:hover {
+    transform: scale(1.03);
+    background-color: #f1f1f1;
+}
+
+tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+caption {
+    caption-side: top;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.label {
+    font-weight: bold;
+    color: #2a2;
+}
+
+.label.optional {
+    color: #28a;
+}
+
+/* timeline */
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 900px;
+    padding-left: 40px;
+    border-left: 4px solid #ff4400;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -80px;
+    top: 15px;
+    background: white;
+    color: #ff4400;
+    border: 2px solid #ff4400;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    /* text-align: center; */
+    line-height: 36px;
+    /* writing-mode: vertical-rl; */
+
+    display: flex;
+    /* 中央揃え用 */
+    align-items: center;
+    /* 垂直中央 */
+    justify-content: center;
+    /* 水平中央 */
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.timeline-content img {
+    max-width: 250px;
+    border-radius: 6px;
+}
+
+.timeline-content .text {
+    flex: 1;
+}
+
+.timeline-content .text h3 {
+    margin-top: 0;
+    color: #ff4400;
+    font-size: 1.2rem;
+}
+
+
+
+
+.article-section {
+    scroll-margin-top: 80px;
+}
+
+@media (height > 768px) and (width > 800px) {
+    .article-section {
+        scroll-margin-top: 80px;
+    }
+
+    .main-nav {
+        top: 60px;
+        font-size: 1.5em;
+    }
+
+    /* .article-body {
+        scroll-margin-top: 80px;
+    } */
+
+    #fixed-header {
+        height: 60px;
+        font-size: 2em;
+    }
+}

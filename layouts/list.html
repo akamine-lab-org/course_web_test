@@ -1,0 +1,16 @@
+<!-- themes/kyoto-seika/layouts/_default/list.html -->
+{{ define "main" }}
+<section class="post-list">
+    <h2>{{ .Title }}</h2>
+    <ul>
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+                <span class="title">{{ .Title }}</span>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

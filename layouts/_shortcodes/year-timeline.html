@@ -1,0 +1,13 @@
+<div class="timeline">
+    {{ range .Page.Params.years }}
+    <div class="timeline-item" data-year="{{ .year }}">
+        <div class="timeline-content">
+            <!-- <img src="{{ .image }}" alt="{{ .year }}の様子" /> -->
+            <div class="text">
+                <h3>{{ .title }}</h3>
+                <p>{{ .desc }}</p>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>

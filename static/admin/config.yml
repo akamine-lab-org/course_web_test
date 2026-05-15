@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: akamine-lab/cms_test         # ✅ 拡張子なし！
+  branch: main
+  auth_type: implicit
+  app_id: xxxxxxxxxxxxxxx
+
+publish_mode: editorial_workflow
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
